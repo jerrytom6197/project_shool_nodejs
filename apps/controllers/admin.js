@@ -3,6 +3,7 @@ var router = express.Router();
 var config = require('config');
 var utils = require("../helpers/utils");
 
+<<<<<<< HEAD
 
 router.get("/", function (req, res) {
     res.render("admin/dashboard", getTitleAndUrl('Dashboard'));
@@ -62,5 +63,30 @@ router.post("/user/add", function (req, res) {
 
 
 
+=======
+
+
+router.get("/", function (req, res) {
+    var data = {
+        title: 'Dashboard | '+config.get('domain.nameurl'),
+        url: config.get('domain.url')
+    }
+  res.render("admin/dashboard", data);
+});
+
+
+
+router.get('/login', function(req, res){
+    var data = {
+        title: 'Login | '+config.get('domain.nameurl'),
+        url: config.get('domain.url')
+    }
+  res.render("admin/login", data);
+});
+
+function get (a) {
+
+}
+>>>>>>> b45e8e2609e2d6a164cb73ff6f57e13bb4f94947
 
 module.exports = router;
