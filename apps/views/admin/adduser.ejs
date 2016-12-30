@@ -94,32 +94,45 @@
 
     <!-- Main content wrapper -->
     <div class="wrapper">
+        <% if(success != null && error == null){%>
+        <div class="nNote nSuccess hideit">
+            <p><strong>SUCCESS: </strong><%= success%></p>
+        </div>
+        <%}%>
+        <% if(error != null && success == null){%>
+        <div class="nNote nFailure hideit">
+            <p><strong>FAILURE: </strong><%= error%></p>
+        </div>
+        <%}%>
 
         <form id="validate" class="form" method="post" action="<%= url %>/admin/user/add">
             <fieldset>
                 <div class="widget">
                     <div class="title">
-                        <img src="<%= url%>/assets/images/icons/control/32/hire-me.png" alt="" class="titleIcon"  width="15px"/>
+                        <img src="<%= url %>/assets/images/icons/control/32/hire-me.png" alt="" class="titleIcon"
+                             width="15px"/>
                         <h6>Add User</h6>
                     </div>
                     <div class="formRow">
                         <label>Email address:<span class="req">*</span></label>
                         <div class="formRight">
-                            <input type="text" value="" class="validate[required,custom[email]]" name="email" id="emailValid"/>
+                            <input type="text" value="" class="validate[required,custom[email]]" name="email"
+                                   id="emailValid"/>
                         </div>
                         <div class="clear"></div>
                     </div>
                     <div class="formRow">
                         <label>Password:<span class="req">*</span></label>
                         <div class="formRight">
-                            <input type="password" class="validate[required]" name="password" id="password" />
+                            <input type="password" class="validate[required]" name="password" id="password"/>
                         </div>
                         <div class="clear"></div>
                     </div>
                     <div class="formRow">
                         <label>Repeat password:<span class="req">*</span></label>
                         <div class="formRight">
-                            <input type="password" class="validate[required]" name="repeatPassword" id="repeatPassword" />
+                            <input type="password" class="validate[required]" name="repeatPassword"
+                                   id="repeatPassword"/>
                         </div>
                         <div class="clear"></div>
                     </div>
@@ -133,18 +146,18 @@
                     <div class="formRow">
                         <label>Birthday:<span class="req">*</span></label>
                         <div class="formRight">
-                            <input type="text" value="" class="validate[custom[date],past[2010/01/01]]" name="birthday" id="birthday"/>
+                            <input type="text" value="" class="validate[required,custom[date],past[2010/01/01]]"
+                                   name="birthday" id="birthday"/>
                         </div>
                         <div class="clear"></div>
                     </div>
 
-                    <div class="formSubmit"><input type="submit" value="submit" class="redB" /></div>
+                    <div class="formSubmit"><input type="submit" value="submit" class="redB"/></div>
                     <div class="clear"></div>
                 </div>
 
             </fieldset>
         </form>
-
     </div>
 
     <!-- Footer line -->

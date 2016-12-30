@@ -6,7 +6,7 @@ function checkRequired(val) {
 }
 
 function checkEmail(email) {
-    var errorEmail = "";
+    var errorEmail = "error";
     if (checkRequired(email)) {
         errorEmail = "This field is required";
     } else if (!email.match(/^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/g)) {
@@ -18,12 +18,12 @@ function checkEmail(email) {
 }
 
 function checkPassword(password) {
-    var errorPassword = "";
-    if (checkRequired(user.password)) {
+    var errorPassword = "error";
+    if (checkRequired(password)) {
         errorPassword = "This field is required";
-    } else if (user.password.length < 7) {
+    } else if (password.length < 7) {
         errorPassword = "Password bigger 6 characters.";
-    } else if (user.password.length > 100) {
+    } else if (password.length > 100) {
         errorPassword = "Password less 99 characters";
     } else {
         errorPassword = null;
@@ -32,7 +32,7 @@ function checkPassword(password) {
 }
 
 function checkRepeatPassword(password,repeatPassword) {
-    var errorRepeatPassword = "";
+    var errorRepeatPassword = "error";
     if (checkRequired(repeatPassword)) {
         errorRepeatPassword = "This field is required";
     } else if (password != repeatPassword) {
@@ -40,29 +40,32 @@ function checkRepeatPassword(password,repeatPassword) {
     } else {
         errorRepeatPassword = null;
     }
+    return errorRepeatPassword;
 }
 
 function checkFullName(fullname) {
-    var errorFullName = "";
+    var errorFullName = "error";
     if(checkRequired(fullname)){
         errorFullName = "This field is required";
     }else{
-        errorRepeatPassword = null;
+        errorFullName = null;
     }
+    return errorFullName
 }
 
 function checkBirthday(birthday) {
-    var errorBirthday = "";
-    if(checkRequired(brithday)){
-        errorFullName = "birthday field is required";
-    }else if(!errorBirthday.match(/^\d{4}\-(0?[1-9]|1[012])\-(0?[1-9]|[12][0-9]|3[01])$/g)){
-        errorBirthday = "Date wrong format";
-    }else{
-        errorBirthday = null;
-    }
+    var errorBirthday = "error";
+    // if(!errorBirthday.match(/^\d{4}\-(0?[1-9]|1[012])\-(0?[1-9]|[12][0-9]|3[01])$/g)){
+    //     errorBirthday = "Date wrong format";
+    // }else{
+    //     errorBirthday = null;
+    // }
+    errorBirthday = null;
+    return errorBirthday
 }
 
 module.exports = {
+    checkRequired:checkRequired,
     checkEmail: checkEmail,
     checkPassword: checkPassword,
     checkRepeatPassword:checkRepeatPassword,
